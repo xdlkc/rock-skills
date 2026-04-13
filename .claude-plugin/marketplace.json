@@ -1,0 +1,22 @@
+{
+  "name": "rock-agents",
+  "description": "ROCK 平台 AI Agent 开发插件集，包含 Harbor Benchmark 工具和 Rock Agent SDK 开发指南",
+  "owner": {
+    "name": "xdlkc",
+    "email": ""
+  },
+  "plugins": [
+    {
+      "name": "harbor-tools",
+      "description": "Harbor Benchmark 运行分析与调试工具集，支持沙箱状态查询、Trial 日志分析、Reward 查看等",
+      "category": "development",
+      "source": "./plugins/harbor-tools"
+    },
+    {
+      "name": "rock-agent-sdk",
+      "description": "ROCK Agent SDK 开发指南，辅助开发者编写 Agent 配置、创建 Benchmark 评测 Job、运行并分析结果",
+      "category": "development",
+      "source": "./plugins/rock-agent-sdk"
+    }
+  ]
+}
