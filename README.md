@@ -8,35 +8,38 @@ ROCK 平台 AI Agent 技能插件库，为 Claude Code 等 AI 工具提供针对
 
 ```
 rock-agents/
-├── plugins/                        # 插件目录，每个子目录是一个独立插件
-│   ├── rock-agent-sdk/             # Agent SDK 开发指南
+├── skills/                         # Skills 目录（兼容 npx skills add）
+│   ├── rock-agent-debug ->         # 软链到 plugins
+│   └── rock-agent-sdk ->           # 软链到 plugins
+├── plugins/                        # Claude Code Plugin 目录
+│   ├── rock-agent/                 # Harbor / Bash Job 排查
 │   │   ├── plugin.json
-│   │   ├── hooks/
-│   │   └── skills/rock-agent-sdk/
-│   └── rock-agent/                 # Harbor / Bash Job 排查
+│   │   └── skills/rock-agent-debug/
+│   └── rock-agent-sdk/             # Agent SDK 开发指南
 │       ├── plugin.json
-│       ├── hooks/
-│       └── skills/
-│           └── rock-agent-debug/
+│       └── skills/rock-agent-sdk/
 ├── marketplace/                    # Marketplace 索引
-│   └── registry.json
+│   └── marketplace.json
 └── docs/
-    └── plugin-spec.md
+    ├── installation.md             # 安装指南
+    └── plugin-spec.md              # 插件规范
 ```
 
-## 安装插件
+## 安装技能
 
-在 Claude Code 中通过 marketplace 安装：
+详见 [安装指南](docs/installation.md)。
+
+**快速安装（支持 Claude Code、Cursor、Windsurf、Codex、OpenCode 等）：**
+
+```bash
+npx skills add xdlkc/rock-agents --all
+```
+
+**Claude Code 用户可通过 Plugin Marketplace 安装：**
 
 ```
 /plugin marketplace add xdlkc/rock-agents
 /plugin install rock-agent@rock-agents
-```
-
-或手动安装（将插件目录软链到 `~/.claude/plugins/`）：
-
-```bash
-ln -s ~/Code/rock-agents/plugins/rock-agent ~/.claude/plugins/rock-agent
 ```
 
 ## 开发插件
